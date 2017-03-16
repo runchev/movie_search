@@ -8,19 +8,32 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var router_1 = require('@angular/router');
+var movie_service_1 = require('../../services/movie.service');
 var core_1 = require('@angular/core');
 var MovieComponent = (function () {
-    function MovieComponent() {
+    function MovieComponent(_router, _movieservice) {
+        this._router = _router;
+        this._movieservice = _movieservice;
     }
+    MovieComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this._router.params.subscribe(function (param) {
+            var id = param['id'];
+            _this._movieservice.searchMovie(id).subscribe(function (res) {
+                _this.movie = res;
+            });
+        });
+    };
     MovieComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
             selector: 'movie',
-            templateUrl: 'movie.component.html',
+            templateUrl: 'movie.component.html'
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [router_1.ActivatedRoute, movie_service_1.MovieService])
     ], MovieComponent);
     return MovieComponent;
 }());
 exports.MovieComponent = MovieComponent;
-//# sourceMappingURL=movie.component.js.map
+//# sourceMappingURL=movie.components.js.map

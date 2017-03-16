@@ -8,18 +8,24 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var movie_component_1 = require('./components/movie/movie.component');
+var movie_components_1 = require('./components/movie/movie.components');
+var app_routing_1 = require('./app.routing');
+var forms_1 = require('@angular/forms');
+var movies_component_1 = require('./components/movies/movies.component');
 var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
+var http_1 = require('@angular/http');
+var movie_service_1 = require('./services/movie.service');
 var app_component_1 = require('./app.component');
 var AppModule = (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         core_1.NgModule({
-            imports: [platform_browser_1.BrowserModule],
-            declarations: [app_component_1.AppComponent, movie_component_1.MovieComponent],
-            bootstrap: [app_component_1.AppComponent]
+            imports: [platform_browser_1.BrowserModule, http_1.HttpModule, http_1.JsonpModule, forms_1.FormsModule, app_routing_1.routing],
+            declarations: [app_component_1.AppComponent, movies_component_1.MoviesComponent, movie_components_1.MovieComponent],
+            bootstrap: [app_component_1.AppComponent],
+            providers: [movie_service_1.MovieService]
         }), 
         __metadata('design:paramtypes', [])
     ], AppModule);

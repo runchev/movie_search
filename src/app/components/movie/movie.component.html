@@ -1,34 +1,26 @@
-<div class="container">
-    <div class="row">
-        <div class="col-md-2">
-            <h2>Heading</h2>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-            <a href="#" class="btn btn-primay" role="button">View details</a>
+<div *ngIf="movie">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3>{{movie.title}}</h3>
         </div>
-        <div class="col-md-2">
-            <h2>Heading</h2>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-            <a href="#" class="btn btn-primay" role="button">View details</a>
-        </div>
-        <div class="col-md-2">
-            <h2>Heading</h2>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-            <a href="#" class="btn btn-primay" role="button">View details</a>
-        </div>
-        <div class="col-md-2">
-            <h2>Heading</h2>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-            <a href="#" class="btn btn-primay" role="button">View details</a>
-        </div>
-        <div class="col-md-2">
-            <h2>Heading</h2>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-            <a href="#" class="btn btn-primay" role="button">View details</a>
-        </div>
-        <div class="col-md-2">
-            <h2>Heading</h2>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-            <a href="#" class="btn btn-primay" role="button">View details</a>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-5">
+                    <img class="thumbnail" src="http://image.tmdb.org/t/p/w500/{{movie.poster_path}}"/>
+                </div>
+                <div class="col-md-7">
+                    <p>{{movie.overview}}</p>
+                    <br>
+                    <ul class="list-group">
+                        <li class="list-group-item">Genres: <span *ngFor="let genre of movie.genres">{{genre.name}} </span></li>
+                        <li class="list-group-item">Release date: {{movie.release_date}}</li>
+                    </ul>
+                    <br>
+                    <div *ngIf="movie.homepage">
+                        <a href="{{movie.homepage}}" class="btn btn-default" target="_blank">Visit Movie Website</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
